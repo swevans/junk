@@ -34,16 +34,6 @@
     </config-file>
     <framework src='src/android/build-extras.gradle' custom='true' type='gradleReference'/>
     <source-file src='src/android/MWDevice.java' target-dir='src/com/mbientlab/metawear/cordova'/>
-    <source-file src='src/android/RSSI.java' target-dir='src/com/mbientlab/metawear/cordova'/>
-    <source-file src='src/android/BatteryLevel.java' target-dir='src/com/mbientlab/metawear/cordova'/>
-    <source-file src='src/android/SupportedModules.java' target-dir='src/com/mbientlab/metawear/cordova'/>
-    <source-file src='src/android/MWAccelerometer.java' target-dir='src/com/mbientlab/metawear/cordova'/>
-    <source-file src='src/android/MWMultiChannelTemperature.java' target-dir='src/com/mbientlab/metawear/cordova'/>
-    <source-file src='src/android/StepCounter.java' target-dir='src/com/mbientlab/metawear/cordova'/>
-    <source-file src='src/android/LEDModule.java' target-dir='src/com/mbientlab/metawear/cordova'/>
-    <source-file src='src/android/MWGyroscope.java' target-dir='src/com/mbientlab/metawear/cordova'/>
-    <source-file src='src/android/BluetoothScanner.java' target-dir='src/com/mbientlab/metawear/cordova'/>
-    <source-file src='src/android/GpioModule.java' target-dir='src/com/mbientlab/metawear/cordova'/>
   </platform>
   
 </plugin>
