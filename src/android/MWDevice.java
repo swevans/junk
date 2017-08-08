@@ -51,11 +51,13 @@ public class MWDevice extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
         
+        /*
         cordova.getActivity().getApplicationContext().bindService(
                                        new Intent(cordova.getActivity(),
                                                   MetaWearBleService.class),
                                        this, Context.BIND_AUTO_CREATE
                                        );
+        */
     }
 
     public boolean execute(final String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
