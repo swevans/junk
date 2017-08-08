@@ -103,12 +103,7 @@ public class MWDevice extends CordovaPlugin {
 
 
 
-        Context context = cordova.getActivity().getApplicationContext();
-        CharSequence text = "Hello toast!";
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+       
 
 
 
@@ -118,7 +113,11 @@ public class MWDevice extends CordovaPlugin {
             @Override
             public void run()
             {
-                
+                Context context = this.activity.getApplicationContext();
+                CharSequence text = "Hello toast!";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
 
                 /*
                 final int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
