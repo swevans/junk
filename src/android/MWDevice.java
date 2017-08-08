@@ -99,11 +99,7 @@ public class MWDevice extends CordovaPlugin {
 		this.window = this.activity.getWindow();
 		this.decorView = this.window.getDecorView();
 
-        this.cordova.getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run()
-            {
-                new AlertDialog.Builder(activity)
+        new AlertDialog.Builder(activity)
                     .setTitle("Your Alert")
                     .setMessage("Your Message")
                     .setCancelable(false)
@@ -113,6 +109,12 @@ public class MWDevice extends CordovaPlugin {
                             // Whatever...
                         }
                     }).show();
+
+        this.cordova.getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run()
+            {
+                
 
                 /*
                 final int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
