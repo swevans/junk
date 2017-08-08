@@ -19,7 +19,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import android.Manifest;
 
-
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
@@ -27,6 +26,9 @@ import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
+
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 
 import android.app.Activity;
 import android.graphics.Point;
@@ -98,7 +100,7 @@ public class MWDevice extends CordovaPlugin {
             @Override
             public void run()
             {
-                new AlertDialog.Builder(YourActivity.this)
+                new AlertDialog.Builder(activity)
                     .setTitle("Your Alert")
                     .setMessage("Your Message")
                     .setCancelable(false)
