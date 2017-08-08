@@ -89,7 +89,7 @@ public class MWDevice extends CordovaPlugin {
                                        );
         */
 
-        this.context = cordova.getActivity().getApplicationContext();
+        //this.context = cordova.getActivity().getApplicationContext();
 		this.activity = cordova.getActivity();
 		this.window = this.activity.getWindow();
 		this.decorView = this.window.getDecorView();
@@ -134,11 +134,11 @@ public class MWDevice extends CordovaPlugin {
 						}
 					});
 					
-					context.success();
+					
 				}
 				catch (Exception e)
 				{
-					context.error(e.getMessage());
+					
 				}
             }
         });
