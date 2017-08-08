@@ -33,6 +33,8 @@ import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 
+import anddroid.widget.Toast;
+
 import android.app.Activity;
 import android.graphics.Point;
 import android.os.Build;
@@ -99,16 +101,18 @@ public class MWDevice extends CordovaPlugin {
 		this.window = this.activity.getWindow();
 		this.decorView = this.window.getDecorView();
 
-        new AlertDialog.Builder(activity)
-                    .setTitle("Your Alert")
-                    .setMessage("Your Message")
-                    .setCancelable(false)
-                    .setPositiveButton("ok", new OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            // Whatever...
-                        }
-                    }).show();
+
+
+        Context context = cordova.getActivity().getApplicationContext();
+        CharSequence text = "Hello toast!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+
+
+
 
         this.cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
