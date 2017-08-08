@@ -6,7 +6,6 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.PluginResult;
 import org.json.JSONObject;
-import android.content.ServiceConnection;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -21,7 +20,6 @@ import org.json.JSONException;
 import android.Manifest;
 
 import android.os.IBinder;
-import com.mbientlab.metawear.MetaWearBleService;
 
 /**
  *
@@ -33,8 +31,6 @@ import com.mbientlab.metawear.MetaWearBleService;
  */
 
 public class MWDevice extends CordovaPlugin {
-
-    private MetaWearBleService.LocalBinder serviceBinder;
 
     /**
      * Constructor.
@@ -61,18 +57,7 @@ public class MWDevice extends CordovaPlugin {
     }
 
     public boolean execute(final String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        cordova.requestPermission(this, 0, Manifest.permission.ACCESS_FINE_LOCATION);
-        final int duration = Toast.LENGTH_SHORT;
-    }
-
-    @Override
-    public void onCreate(){
         
-    }
-
-    @Override
-    public void onDestroy(){
-        cordova.getActivity().getApplicationContext().unbindService(this);
     }
 
 }
