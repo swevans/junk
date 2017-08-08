@@ -33,8 +33,7 @@ import com.mbientlab.metawear.MetaWearBleService;
  */
 
 public class MWDevice extends CordovaPlugin {
-    public static final String TAG = "com.battleline.cordova";
-
+    
     private MetaWearBleService.LocalBinder serviceBinder;
 
     /**
@@ -57,14 +56,11 @@ public class MWDevice extends CordovaPlugin {
                                                   MetaWearBleService.class),
                                        this, Context.BIND_AUTO_CREATE
                                        );
-        Log.v(TAG,"Init Device");
     }
 
     public boolean execute(final String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         cordova.requestPermission(this, 0, Manifest.permission.ACCESS_FINE_LOCATION);
         final int duration = Toast.LENGTH_SHORT;
-        // Shows a toast
-        Log.v(TAG,"received:"+ action);
     }
 
     @Override
