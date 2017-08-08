@@ -33,7 +33,7 @@ import com.mbientlab.metawear.MetaWearBleService;
  */
 
 public class MWDevice extends CordovaPlugin {
-    
+
     private MetaWearBleService.LocalBinder serviceBinder;
 
     /**
@@ -51,7 +51,7 @@ public class MWDevice extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
         
-        applicationContext.bindService(
+        cordova.getActivity().getApplicationContext().bindService(
                                        new Intent(cordova.getActivity(),
                                                   MetaWearBleService.class),
                                        this, Context.BIND_AUTO_CREATE
