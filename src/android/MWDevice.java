@@ -98,54 +98,22 @@ public class MWDevice extends CordovaPlugin {
             @Override
             public void run()
             {
-                try
-				{
-					resetWindow();
-					
-					final int uiOptions = 
-						View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-						| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-						| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-						| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-						| View.SYSTEM_UI_FLAG_FULLSCREEN
-						| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-					
-					window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-					decorView.setSystemUiVisibility(uiOptions);
-					
-					decorView.setOnFocusChangeListener(new View.OnFocusChangeListener() 
-					{
-						@Override
-						public void onFocusChange(View v, boolean hasFocus) 
-						{
-							if (hasFocus)
-							{
-								decorView.setSystemUiVisibility(uiOptions);
-							}
-						}
-					});
-					
-					decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener()
-					{
-						@Override
-						public void onSystemUiVisibilityChange(int visibility) 
-						{
-							decorView.setSystemUiVisibility(uiOptions);
-						}
-					});
-					
-					
-				}
-				catch (Exception e)
-				{
-					
-				}
+               final int uiOptions = 
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+                
+                window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                decorView.setSystemUiVisibility(uiOptions);
             }
         });
     }
 
     public boolean execute(final String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        return false;
+        return true;
     }
 
     protected void resetWindow()
