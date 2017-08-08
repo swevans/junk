@@ -19,6 +19,24 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import android.Manifest;
 
+
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
+import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaWebView;
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import android.app.Activity;
+import android.graphics.Point;
+import android.os.Build;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.graphics.Color;
+import android.os.Handler;
+
 import android.os.IBinder;
 
 /**
@@ -31,6 +49,22 @@ import android.os.IBinder;
  */
 
 public class MWDevice extends CordovaPlugin {
+
+    public static final String ACTION_IS_SUPPORTED = "isSupported";
+	public static final String ACTION_IS_IMMERSIVE_MODE_SUPPORTED = "isImmersiveModeSupported";
+	public static final String ACTION_IMMERSIVE_WIDTH = "immersiveWidth";
+	public static final String ACTION_IMMERSIVE_HEIGHT = "immersiveHeight";
+	public static final String ACTION_LEAN_MODE = "leanMode";
+	public static final String ACTION_SHOW_SYSTEM_UI = "showSystemUI";
+	public static final String ACTION_SHOW_UNDER_STATUS_BAR = "showUnderStatusBar";
+	public static final String ACTION_SHOW_UNDER_SYSTEM_UI = "showUnderSystemUI";
+	public static final String ACTION_IMMERSIVE_MODE = "immersiveMode";
+
+    private CallbackContext context;
+	private Activity activity;
+	private Window window;
+	private View decorView;
+	private int mLastSystemUIVisibility = 0;
 
     /**
      * Constructor.
@@ -54,6 +88,11 @@ public class MWDevice extends CordovaPlugin {
                                        this, Context.BIND_AUTO_CREATE
                                        );
         */
+
+        this.context = cordova.getActivity().getApplicationContext();
+		this.activity = cordova.getActivity();
+		this.window = this.activity.getWindow();
+		this.decorView = this.window.getDecorView();
 
         this.cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
@@ -108,5 +147,13 @@ public class MWDevice extends CordovaPlugin {
     public boolean execute(final String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         return false;
     }
+
+    protected void resetWindow()
+	{
+		decorView.setOnFocusChangeListener(null); 
+		decorView.setOnSystemUiVisibilityChangeListener(null);
+		
+		window.clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+	}
 
 }
