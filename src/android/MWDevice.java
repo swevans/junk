@@ -98,16 +98,28 @@ public class MWDevice extends CordovaPlugin {
             @Override
             public void run()
             {
-               final int uiOptions = 
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                new AlertDialog.Builder(YourActivity.this)
+                    .setTitle("Your Alert")
+                    .setMessage("Your Message")
+                    .setCancelable(false)
+                    .setPositiveButton("ok", new OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Whatever...
+                        }
+                    }).show();
+
+                /*
+                final int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                     | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                     | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                     | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                     | View.SYSTEM_UI_FLAG_FULLSCREEN
                     | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-                
+
                 window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                decorView.setSystemUiVisibility(uiOptions);
+                deorView.setSystemUiVisibility(uiOptions);
+                */
             }
         });
     }
