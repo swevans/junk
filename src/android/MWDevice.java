@@ -57,7 +57,7 @@ public class MWDevice extends CordovaPlugin {
     }
 
     public boolean execute(final String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        
+        return false;
     }
 
 }
