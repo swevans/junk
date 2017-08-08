@@ -33,7 +33,7 @@ import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 
-import anddroid.widget.Toast;
+import android.widget.Toast;
 
 import android.app.Activity;
 import android.graphics.Point;
