@@ -1,44 +1,16 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<plugin xmlns='http://apache.org/cordova/ns/plugins/1.0' xmlns:android='http://schemas.android.com/apk/res/android' id='com.mbientlab.metawear' version='0.2.15'>
-  <name>
-    MetaWear
-  </name>
-  <description>
-    This plugin wraps the Metawear Android API.
-  </description>
-  <license>
-    Apache 2.0
-  </license>
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="battleline-plugin-firebase-core" version="0.0.1">
+    <name>Firebase Core</name>
+    <description>Cordova plugin for the Firebase Core analytics SDK.</description>
+    <license>Apache 2.0</license>
+    <author>Spencer Evans</author>
+    <keywords>cordova,firebase,core,analytics</keywords>
+    <js-module src="www/FirebaseAnalytics.js" name="FirebaseAnalytics">
+        <clobbers target="FirebaseAnalytics" />
+    </js-module>
 
-  <engines>
-    <engine name="cordova" version=">=3.0.0" />
-  </engines>
-
-  <keywords>
-    cordova,coolest
-  </keywords>
-  <repo/>
-  <issue/>
-  <js-module src='www/MWDevice.js' name='MWDevice'>
-    <clobbers target='metawear.mwdevice'/>
-  </js-module>
-  <!-- android -->
-  <platform name='android'>
-    <config-file target='res/xml/config.xml' parent='/*'>
-      <feature name='MWDevice'>
-        <param name='android-package' value='com.mbientlab.metawear.cordova.MWDevice'/>
-      </feature>
-    </config-file>
-    <config-file target='AndroidManifest.xml' parent='/manifest/application'>
-      <service android:name='com.mbientlab.metawear.MetaWearBleService'>
-      </service>
-    </config-file>
-    <config-file target='AndroidManifest.xml' parent='/manifest'>
-      <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    </config-file>
-    <framework src='src/android/build-extras.gradle' custom='true' type='gradleReference'/>
-    <source-file src='src/android/MWDevice.java' target-dir='src/com/mbientlab/metawear/cordova'/>
-  </platform>
-  
+    <platform name="android">
+        <source-file src="src/android/AnalyticsWebInterface.java" target-dir="src/org/apache/cordova/plugin" />
+    </platform>
 </plugin>
